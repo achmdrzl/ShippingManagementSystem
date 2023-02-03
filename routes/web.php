@@ -1,5 +1,11 @@
 <?php
 
+use App\Http\Controllers\Internal\DashboardController;
+use App\Http\Controllers\Internal\DataCustomerController;
+use App\Http\Controllers\Internal\DataKaryawanController;
+use App\Http\Controllers\Internal\DataTarifController;
+use App\Http\Controllers\Internal\DataTransaksiController;
+use App\Http\Controllers\Internal\ReportController;
 use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
 
@@ -15,12 +21,31 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', function () {
-    return view('welcome');
+    return view('backend.login');
+})->name('login');
+
+Route::group(['middleware' => ['role:superadmin|admin', 'auth']], function () {
+
+    // Dashboard
+    Route::get('/dashboard', DashboardController::class . '@index')->name('dashboard');
+
+    // Data Tarif
+    Route::resource('rates', DataTarifController::class);
+
+    // Data Employee
+    Route::resource('employee', DataKaryawanController::class);
+
+    // Data Customer
+    Route::resource('customer', DataCustomerController::class);
+
+    // Data Employee
+    Route::resource('transaction', DataTransaksiController::class);
+
+    // Data Employee
+    Route::resource('report', ReportController::class);
+
 });
 
-Route::get('/dashboard', function () {
-    return view('dashboard');
-})->middleware(['auth', 'verified'])->name('dashboard');
 
 Route::middleware('auth')->group(function () {
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
@@ -28,4 +53,4 @@ Route::middleware('auth')->group(function () {
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
 });
 
-require __DIR__.'/auth.php';
+require __DIR__ . '/auth.php';
