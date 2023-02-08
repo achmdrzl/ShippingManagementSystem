@@ -7,12 +7,14 @@
     "require": {
         "php": "^8.0.2",
         "appslabke/lara-izitoast": "^1.1",
+        "barryvdh/laravel-dompdf": "^2.0",
         "biscolab/laravel-recaptcha": "^5.4",
         "brian2694/laravel-toastr": "^5.57",
         "guzzlehttp/guzzle": "^7.2",
         "laravel/framework": "^9.19",
         "laravel/sanctum": "^3.0",
         "laravel/tinker": "^2.7",
+        "picqer/php-barcode-generator": "^2.2",
         "spatie/laravel-permission": "^5.8"
     },
     "require-dev": {

@@ -2,6 +2,9 @@
 
 @section('content')
     <div class="row">
+        @if (session()->has('message'))
+            {!! Toastr::message() !!}
+        @endif
         <div class="col-12 col-sm-12 col-lg-12">
             <div class="card">
                 <div class="card-header">
@@ -20,214 +23,76 @@
                     </ul>
                     <div class="tab-content" id="myTabContent2">
                         <div class="tab-pane fade show active" id="home3" role="tabpanel" aria-labelledby="home-tab3">
-                            <div class="table-responsive">
-                                <table class="table table-striped mb-0">
+                            <div class="">
+                                <table class="table table-striped display" id="table-1" width="100%">
                                     <thead>
                                         <tr>
-                                            <th>Title</th>
-                                            <th>Author</th>
+                                            <th>No</th>
+                                            <th>Kota</th>
+                                            <th>Berat</th>
+                                            <th>Harga</th>
+                                            <th>Status</th>
                                             <th>Action</th>
                                         </tr>
                                     </thead>
                                     <tbody>
-                                        <tr>
-                                            <td>
-                                                Introduction Laravel 5
-                                                <div class="table-links">
-                                                    in <a href="#">Web Development</a>
-                                                    <div class="bullet"></div>
-                                                    <a href="#">View</a>
-                                                </div>
-                                            </td>
-                                            <td>
-                                                <a href="#" class="font-weight-600"><img
-                                                        src="assets/img/avatar/avatar-1.png" alt="avatar" width="30"
-                                                        class="rounded-circle mr-1"> Bagus Dwi Cahya</a>
-                                            </td>
-                                            <td>
-                                                <a class="btn btn-primary btn-action mr-1" data-toggle="tooltip"
-                                                    title="Edit"><i class="fas fa-pencil-alt"></i></a>
-                                                <a class="btn btn-danger btn-action" data-toggle="tooltip" title="Delete"
-                                                    data-confirm="Are You Sure?|This action can not be undone. Do you want to continue?"
-                                                    data-confirm-yes="alert('Deleted')"><i class="fas fa-trash"></i></a>
-                                            </td>
-                                        </tr>
-                                        <tr>
-                                            <td>
-                                                Laravel 5 Tutorial - Installation
-                                                <div class="table-links">
-                                                    in <a href="#">Web Development</a>
-                                                    <div class="bullet"></div>
-                                                    <a href="#">View</a>
-                                                </div>
-                                            </td>
-                                            <td>
-                                                <a href="#" class="font-weight-600"><img
-                                                        src="assets/img/avatar/avatar-1.png" alt="avatar" width="30"
-                                                        class="rounded-circle mr-1"> Bagus Dwi Cahya</a>
-                                            </td>
-                                            <td>
-                                                <a class="btn btn-primary btn-action mr-1" data-toggle="tooltip"
-                                                    title="Edit"><i class="fas fa-pencil-alt"></i></a>
-                                                <a class="btn btn-danger btn-action" data-toggle="tooltip" title="Delete"
-                                                    data-confirm="Are You Sure?|This action can not be undone. Do you want to continue?"
-                                                    data-confirm-yes="alert('Deleted')"><i class="fas fa-trash"></i></a>
-                                            </td>
-                                        </tr>
-                                        <tr>
-                                            <td>
-                                                Laravel 5 Tutorial - MVC
-                                                <div class="table-links">
-                                                    in <a href="#">Web Development</a>
-                                                    <div class="bullet"></div>
-                                                    <a href="#">View</a>
-                                                </div>
-                                            </td>
-                                            <td>
-                                                <a href="#" class="font-weight-600"><img
-                                                        src="assets/img/avatar/avatar-1.png" alt="avatar" width="30"
-                                                        class="rounded-circle mr-1"> Bagus Dwi Cahya</a>
-                                            </td>
-                                            <td>
-                                                <a class="btn btn-primary btn-action mr-1" data-toggle="tooltip"
-                                                    title="Edit"><i class="fas fa-pencil-alt"></i></a>
-                                                <a class="btn btn-danger btn-action" data-toggle="tooltip" title="Delete"
-                                                    data-confirm="Are You Sure?|This action can not be undone. Do you want to continue?"
-                                                    data-confirm-yes="alert('Deleted')"><i class="fas fa-trash"></i></a>
-                                            </td>
-                                        </tr>
-                                        <tr>
-                                            <td>
-                                                Laravel 5 Tutorial - Migration
-                                                <div class="table-links">
-                                                    in <a href="#">Web Development</a>
-                                                    <div class="bullet"></div>
-                                                    <a href="#">View</a>
-                                                </div>
-                                            </td>
-                                            <td>
-                                                <a href="#" class="font-weight-600"><img
-                                                        src="assets/img/avatar/avatar-1.png" alt="avatar" width="30"
-                                                        class="rounded-circle mr-1"> Bagus Dwi Cahya</a>
-                                            </td>
-                                            <td>
-                                                <a class="btn btn-primary btn-action mr-1" data-toggle="tooltip"
-                                                    title="Edit"><i class="fas fa-pencil-alt"></i></a>
-                                                <a class="btn btn-danger btn-action" data-toggle="tooltip" title="Delete"
-                                                    data-confirm="Are You Sure?|This action can not be undone. Do you want to continue?"
-                                                    data-confirm-yes="alert('Deleted')"><i class="fas fa-trash"></i></a>
-                                            </td>
-                                        </tr>
-                                        <tr>
-                                            <td>
-                                                Laravel 5 Tutorial - Deploy
-                                                <div class="table-links">
-                                                    in <a href="#">Web Development</a>
-                                                    <div class="bullet"></div>
-                                                    <a href="#">View</a>
-                                                </div>
-                                            </td>
-                                            <td>
-                                                <a href="#" class="font-weight-600"><img
-                                                        src="assets/img/avatar/avatar-1.png" alt="avatar"
-                                                        width="30" class="rounded-circle mr-1"> Bagus Dwi Cahya</a>
-                                            </td>
-                                            <td>
-                                                <a class="btn btn-primary btn-action mr-1" data-toggle="tooltip"
-                                                    title="Edit"><i class="fas fa-pencil-alt"></i></a>
-                                                <a class="btn btn-danger btn-action" data-toggle="tooltip" title="Delete"
-                                                    data-confirm="Are You Sure?|This action can not be undone. Do you want to continue?"
-                                                    data-confirm-yes="alert('Deleted')"><i class="fas fa-trash"></i></a>
-                                            </td>
-                                        </tr>
-                                        <tr>
-                                            <td>
-                                                Laravel 5 Tutorial - Closing
-                                                <div class="table-links">
-                                                    in <a href="#">Web Development</a>
-                                                    <div class="bullet"></div>
-                                                    <a href="#">View</a>
-                                                </div>
-                                            </td>
-                                            <td>
-                                                <a href="#" class="font-weight-600"><img
-                                                        src="assets/img/avatar/avatar-1.png" alt="avatar"
-                                                        width="30" class="rounded-circle mr-1"> Bagus Dwi Cahya</a>
-                                            </td>
-                                            <td>
-                                                <a class="btn btn-primary btn-action mr-1" data-toggle="tooltip"
-                                                    title="Edit"><i class="fas fa-pencil-alt"></i></a>
-                                                <a class="btn btn-danger btn-action" data-toggle="tooltip" title="Delete"
-                                                    data-confirm="Are You Sure?|This action can not be undone. Do you want to continue?"
-                                                    data-confirm-yes="alert('Deleted')"><i class="fas fa-trash"></i></a>
-                                            </td>
-                                        </tr>
+                                        @foreach ($rates as $item)
+                                            <tr>
+                                                <input type="hidden" class="delete_id" value="{{ $item->id }}">
+
+                                                <td>{{ $loop->iteration }}</td>
+                                                <td>{{ $item->kota }}</td>
+                                                <td>{{ $item->berat / 1000 }} kg</td>
+                                                <td>{{ $item->harga }}</td>
+                                                <td>
+                                                    @if ($item->status == 'active')
+                                                        <div class="badge badge-success">{{ ucfirst($item->status) }}</div>
+                                                    @else
+                                                        <div class="badge badge-danger">{{ ucfirst($item->status) }}</div>
+                                                    @endif
+                                                </td>
+                                                <td>
+                                                    <button type="button" title="Edit"
+                                                        class="btn btn-primary editRatesBtn" data-toggle="modal"
+                                                        data-target="#editRates" data-id="{{ $item->id }}"
+                                                        value="{{ $item->id }}">
+                                                        <i class="fas fa-pencil-alt" id="btn-edit-post"></i>
+                                                    </button>
+                                                    @if ($item->status == 'active')
+                                                        <form action="{{ route('rates.destroy', $item->id) }}"
+                                                            method="POST" class="d-inline">
+                                                            @csrf
+                                                            @method('delete')
+                                                            <button type="submit" class="btn btn-danger btn-md btndelete"
+                                                                title="Archive">
+                                                                <i class="fas fa-trash"></i>
+                                                            </button>
+                                                        </form>
+                                                    @else
+                                                        <form action="{{ route('rates.destroy', $item->id) }}"
+                                                            method="POST" class="d-inline">
+                                                            @csrf
+                                                            @method('delete')
+                                                            <button type="submit"
+                                                                class="btn btn-success btn-md btnUnDelete" title="Show">
+                                                                <i class="fas fa-eye"></i>
+                                                            </button>
+                                                        </form>
+                                                    @endif
+                                                </td>
+                                                @include('backend.dataTarif.edit')
+                                            </tr>
+                                        @endforeach
                                     </tbody>
                                 </table>
                             </div>
                         </div>
                         <div class="tab-pane fade" id="Tambah3" role="tabpanel" aria-labelledby="Tambah-tab3">
-                            <form>
-                                <div class="card-header">
-                                    <h4>Tambah Data Tarif Pengiriman</h4>
-                                </div>
-                                <div class="card-body">
-                                    <div class="form-row">
-                                        <div class="form-group col-md-6">
-                                            <label for="inputEmail4">Email</label>
-                                            <input type="email" class="form-control" id="inputEmail4"
-                                                placeholder="Email">
-                                        </div>
-                                        <div class="form-group col-md-6">
-                                            <label for="inputPassword4">Password</label>
-                                            <input type="password" class="form-control" id="inputPassword4"
-                                                placeholder="Password">
-                                        </div>
-                                    </div>
-                                    <div class="form-group">
-                                        <label for="inputAddress">Address</label>
-                                        <input type="text" class="form-control" id="inputAddress"
-                                            placeholder="1234 Main St">
-                                    </div>
-                                    <div class="form-group">
-                                        <label for="inputAddress2">Address 2</label>
-                                        <input type="text" class="form-control" id="inputAddress2"
-                                            placeholder="Apartment, studio, or floor">
-                                    </div>
-                                    <div class="form-row">
-                                        <div class="form-group col-md-6">
-                                            <label for="inputCity">City</label>
-                                            <input type="text" class="form-control" id="inputCity">
-                                        </div>
-                                        <div class="form-group col-md-4">
-                                            <label for="inputState">State</label>
-                                            <select id="inputState" class="form-control">
-                                                <option selected>Choose...</option>
-                                                <option>...</option>
-                                            </select>
-                                        </div>
-                                        <div class="form-group col-md-2">
-                                            <label for="inputZip">Zip</label>
-                                            <input type="text" class="form-control" id="inputZip">
-                                        </div>
-                                    </div>
-                                    <div class="form-group">
-                                        <div class="form-check">
-                                            <input class="form-check-input" type="checkbox" id="gridCheck">
-                                            <label class="form-check-label" for="gridCheck">
-                                                Check me out
-                                            </label>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="card-footer text-right">
-                                    <button class="btn btn-primary">Submit</button>
-                                </div>
-                            </form>
+                            @include('backend.dataTarif.create')
                         </div>
                     </div>
                 </div>
             </div>
         </div>
-    </div>
-@endsection
+    @endsection
+    @include('backend.dataTarif.delete')

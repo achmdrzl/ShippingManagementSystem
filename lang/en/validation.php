@@ -120,7 +120,7 @@ return [
     'prohibited_unless' => 'The :attribute field is prohibited unless :other is in :values.',
     'prohibits' => 'The :attribute field prohibits :other from being present.',
     'regex' => 'The :attribute format is invalid.',
-    'required' => 'The :attribute field is required.',
+    'required' => 'Input :attribute Wajib Untuk di Isi!',
     'required_array_keys' => 'The :attribute field must contain entries for: :values.',
     'required_if' => 'The :attribute field is required when :other is :value.',
     'required_if_accepted' => 'The :attribute field is required when :other is accepted.',
@@ -158,8 +158,11 @@ return [
     */
 
     'custom' => [
-        'attribute-name' => [
-            'rule-name' => 'custom-message',
+        'statusBayar' => [
+            'required' => 'Kategori Status Pembayaran Wajib Untuk di Isi !',
+        ],
+        'statusKirim' => [
+            'required' => 'Kategori Status Pengiriman Wajib Untuk di Isi !',
         ],
     ],
 

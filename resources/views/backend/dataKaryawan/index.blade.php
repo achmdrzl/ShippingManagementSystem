@@ -23,8 +23,8 @@
                     </ul>
                     <div class="tab-content" id="myTabContent2">
                         <div class="tab-pane fade show active" id="home3" role="tabpanel" aria-labelledby="home-tab3">
-                            <div class="table-responsive">
-                                <table class="table table-striped mb-0">
+                            <div class="">
+                                <table class="table table-striped" id="table-1" width="100%">
                                     <thead>
                                         <tr>
                                             <th>No</th>
@@ -41,7 +41,7 @@
                                                 <td>{{ $loop->iteration }}</td>
                                                 <td>{{ $item->name }}</td>
                                                 <td>{{ $item->email }}</td>
-                                                <td>{{ $item->city }}</td>
+                                                <td>{{ ucfirst($item->city) }}</td>
                                                 <td>
                                                     @if (!empty($item->getRoleNames()))
                                                         @foreach ($item->getRoleNames() as $v)
@@ -60,16 +60,17 @@
                                                             class="fas fa-pencil-alt" id="btn-edit-post"></i></button> --}}
                                                     <button type="button" class="btn btn-primary editEmployeeBtn"
                                                         data-toggle="modal" data-target="#editEmployee"
-                                                        data-id="{{ $item->id }}" value="{{ $item->id }}">
+                                                        data-id="{{ $item->id }}" value="{{ $item->id }}"
+                                                        title="Edit">
                                                         <i class="fas fa-pencil-alt" id="btn-edit-post"></i>
                                                     </button>
 
                                                     <button type="button" class="btn btn-danger deleteEmployeeBtn"
-                                                        data-toggle="modal" data-target="#deleteEmployee"
+                                                        data-toggle="modal" data-target="#deleteEmployee" title="Archive"
                                                         value="{{ $item->id }}">
                                                         <i class="fas fa-trash"></i>
                                                     </button>
-                                                    
+
                                                     @include('backend.dataKaryawan.edit')
                                                     @include('backend.dataKaryawan.delete')
                                                 </td>
@@ -88,4 +89,3 @@
         </div>
     </div>
 @endsection
-
