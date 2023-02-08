@@ -23,8 +23,8 @@
                     </ul>
                     <div class="tab-content" id="myTabContent2">
                         <div class="tab-pane fade show active" id="home3" role="tabpanel" aria-labelledby="home-tab3">
-                            <div class="table-responsive">
-                                <table class="table table-striped mb-0">
+                            <div class="">
+                                <table class="table table-striped display" id="table-1" width="100%">
                                     <thead>
                                         <tr>
                                             <th>No</th>
@@ -49,22 +49,18 @@
                                                 <td>
                                                     <button type="button" class="btn btn-primary editCustomerBtn"
                                                         data-toggle="modal" data-target="#editCustomer"
-                                                        data-id="{{ $item->id }}" value="{{ $item->id }}">
+                                                        data-id="{{ $item->id }}" value="{{ $item->id }}"
+                                                        title="Edit">
                                                         <i class="fas fa-pencil-alt" id="btn-edit-post"></i>
                                                     </button>
-
                                                     <form action="{{ route('customer.destroy', $item->id) }}" method="POST"
                                                         class="d-inline">
                                                         @csrf
                                                         @method('delete')
-                                                        <button type="submit" class="btn btn-danger btn-md btndelete">
+                                                        <button type="submit" class="btn btn-danger btn-md btndelete"
+                                                            title="Archive">
                                                             <i class="fas fa-trash"></i>
                                                         </button>
-                                                        {{-- <button type="button" class="btn btn-danger deleteCustomerBtn"
-                                                            data-toggle="modal" data-target="#deleteeCustomer"
-                                                            value="{{ $item->id }}" id="btn-delete-employee">
-                                                            <i class="fas fa-trash"></i>
-                                                        </button> --}}
                                                     </form>
                                                 </td>
                                                 @include('backend.dataPelanggan.edit')

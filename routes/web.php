@@ -1,13 +1,18 @@
 <?php
 
+use App\Http\Controllers\Internal\AdmTransaksiController;
 use App\Http\Controllers\Internal\DashboardController;
 use App\Http\Controllers\Internal\DataCustomerController;
+use App\Http\Controllers\Internal\DataHistoryController;
 use App\Http\Controllers\Internal\DataKaryawanController;
 use App\Http\Controllers\Internal\DataTarifController;
 use App\Http\Controllers\Internal\DataTransaksiController;
 use App\Http\Controllers\Internal\ReportController;
 use App\Http\Controllers\ProfileController;
+use App\Models\Transaction;
 use Illuminate\Support\Facades\Route;
+use Illuminate\Support\Str;
+use SebastianBergmann\CodeCoverage\Report\Html\Dashboard;
 
 /*
 |--------------------------------------------------------------------------
@@ -38,11 +43,22 @@ Route::group(['middleware' => ['role:superadmin|admin', 'auth']], function () {
     // Data Customer
     Route::resource('customer', DataCustomerController::class);
 
-    // Data Employee
+    // Data Transaction
     Route::resource('transaction', DataTransaksiController::class);
 
-    // Data Employee
+    Route::post('/transactionDelivery/{id}', DataTransaksiController::class. '@updateDelivery')->name('transaction.updateDel');
+
+    Route::get('printBill/{id}', DataTransaksiController::class. '@printBill')->name('printBill');
+
+    // Transaksi Admin
+    Route::resource('admTsk', AdmTransaksiController::class);
+
+    // Data History
+    Route::resource('history', DataHistoryController::class);
+
+    // Data Report Shipping
     Route::resource('report', ReportController::class);
+    Route::post('/setPeriod', ReportController::class . '@setPeriod')->name('set.time.period');
 
 });
 

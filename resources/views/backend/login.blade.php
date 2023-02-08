@@ -39,7 +39,7 @@
                     <div
                         class="col-12 col-sm-8 offset-sm-2 col-md-6 offset-md-3 col-lg-6 offset-lg-3 col-xl-4 offset-xl-4">
                         <div class="login-brand">
-                            <img src="{{ asset('backend/assets/img/stisla-fill.svg') }}" alt="logo" width="100"
+                            <img src="https://ik.imagekit.io/dxofqajmq/Tugas_Akhir/Group_355__1__P4PycX26V.png?ik-sdk-version=javascript-1.4.3&updatedAt=1675716069096" alt="logo" width="100"
                                 class="shadow-light rounded-circle">
                         </div>
 

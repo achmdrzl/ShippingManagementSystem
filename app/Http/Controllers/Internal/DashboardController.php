@@ -3,6 +3,8 @@
 namespace App\Http\Controllers\Internal;
 
 use App\Http\Controllers\Controller;
+use App\Models\Customer;
+use App\Models\Transaction;
 use Illuminate\Http\Request;
 
 class DashboardController extends Controller
@@ -14,7 +16,31 @@ class DashboardController extends Controller
      */
     public function index()
     {
-        return view('backend.dashboard', ['name' => 'Dashboard | Page']);
+        $transaction = Transaction::with(['customer', 'kota'])->whereNot('status_del', 'arrived')->get();
+        $customer = Customer::count();
+        $delThisDay =
+            Transaction::groupBy('tgl_transaksi')
+            ->selectRaw('*, count(total) as total')
+            ->orderByRaw('tgl_transaksi DESC')
+            ->first();
+
+        $delFinishDay =
+            Transaction::groupBy('tgl_transaksi')
+            ->selectRaw('*, count(total) as total')
+            ->where('status_del', 'arrived')
+            ->orderByRaw('tgl_transaksi DESC')
+            ->first();
+
+        $grandTotal = Transaction::sum('total');
+
+        return view('backend.dashboard', [
+            'name' => 'Dashboard | Page',
+            'data' => $transaction,
+            'customer' => $customer,
+            'delThisDay' => $delThisDay,
+            'delFinishDay' => $delFinishDay,
+            'grandTotal' => $grandTotal
+        ]);
     }
 
     /**
@@ -46,7 +72,7 @@ class DashboardController extends Controller
      */
     public function show($id)
     {
-        //
+        // 
     }
 
     /**

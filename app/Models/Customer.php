@@ -10,4 +10,11 @@ class Customer extends Model
     use HasFactory;
 
     protected $guarded = ['id', 'created_at', 'updated_at'];
+
+    public function transaction()
+    {
+        return $this->hasMany(Transaction::class, 'customer_id');
+    }
+
+    
 }
