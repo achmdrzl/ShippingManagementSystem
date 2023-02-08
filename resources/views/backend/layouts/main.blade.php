@@ -7,6 +7,8 @@
     {{-- <title>CV. Den Logistic &mdash; Surabaya</title> --}}
     <title>{{ $name }}</title>
 
+        <!-- Favicon -->
+    <link href="https://ik.imagekit.io/dxofqajmq/Tugas_Akhir/Group_356_yX0l-t3z6.png?ik-sdk-version=javascript-1.4.3&updatedAt=1675895666867" rel="icon" type="image/x-icon">
     <!-- General CSS Files -->
     <link rel="stylesheet" href="{{ asset('backend/assets/modules/bootstrap/css/bootstrap.min.css') }}">
     <link rel="stylesheet" href="{{ asset('backend/assets/modules/fontawesome/css/all.min.css') }}">

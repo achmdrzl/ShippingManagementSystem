@@ -41,9 +41,9 @@
                                             <tr>
                                                 <input type="hidden" class="delete_id" value="{{ $item->id }}">
                                                 <td>{{ $loop->iteration }}</td>
-                                                <td>{{ $item->name }}</td>
-                                                <td>0{{ $item->contact }}</td>
-                                                <td>{{ $item->address }}</td>
+                                                <td>{{ ucfirst($item->name) }}</td>
+                                                <td>{{ $item->contact }}</td>
+                                                <td>{{ ucfirst($item->address) }}</td>
                                                 <td>{{ $item->city }}</td>
                                                 <td>{{ date('d F Y', strtotime($item->registered)) }}</td>
                                                 <td>

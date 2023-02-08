@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\External\FrontController;
 use App\Http\Controllers\Internal\AdmTransaksiController;
 use App\Http\Controllers\Internal\DashboardController;
 use App\Http\Controllers\Internal\DataCustomerController;
@@ -9,10 +10,7 @@ use App\Http\Controllers\Internal\DataTarifController;
 use App\Http\Controllers\Internal\DataTransaksiController;
 use App\Http\Controllers\Internal\ReportController;
 use App\Http\Controllers\ProfileController;
-use App\Models\Transaction;
 use Illuminate\Support\Facades\Route;
-use Illuminate\Support\Str;
-use SebastianBergmann\CodeCoverage\Report\Html\Dashboard;
 
 /*
 |--------------------------------------------------------------------------
@@ -25,9 +23,13 @@ use SebastianBergmann\CodeCoverage\Report\Html\Dashboard;
 |
 */
 
-Route::get('/', function () {
+Route::get('/login', function () {
     return view('backend.login');
 })->name('login');
+
+Route::resource('front', FrontController::class);
+Route::get('/', FrontController::class. '@index')->name('home.index');
+
 
 Route::group(['middleware' => ['role:superadmin|admin', 'auth']], function () {
 
