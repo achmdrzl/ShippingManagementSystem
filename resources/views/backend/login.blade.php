@@ -4,12 +4,16 @@
 <head>
     <meta charset="UTF-8">
     <meta content="width=device-width, initial-scale=1, maximum-scale=1, shrink-to-fit=no" name="viewport">
-    <title>Login &mdash; Stisla</title>
+    <title>LOGIN | CV. DEN LOGISTICS</title>
 
     <!-- General CSS Files -->
     <link rel="stylesheet" href="{{ asset('backend/assets/modules/bootstrap/css/bootstrap.min.css') }}">
     <link rel="stylesheet" href="{{ asset('backend/assets/modules/fontawesome/css/all.min.css') }}">
 
+    <!-- Favicon -->
+    <link
+        href="https://ik.imagekit.io/dxofqajmq/Tugas_Akhir/Group_356_yX0l-t3z6.png?ik-sdk-version=javascript-1.4.3&updatedAt=1675895666867"
+        rel="icon" type="image/x-icon">
     <!-- CSS Libraries -->
     <link rel="stylesheet" href="{{ asset('backend/assets/modules/bootstrap-social/bootstrap-social.css') }}">
 
@@ -39,8 +43,8 @@
                     <div
                         class="col-12 col-sm-8 offset-sm-2 col-md-6 offset-md-3 col-lg-6 offset-lg-3 col-xl-4 offset-xl-4">
                         <div class="login-brand">
-                            <img src="https://ik.imagekit.io/dxofqajmq/Tugas_Akhir/Group_355__1__P4PycX26V.png?ik-sdk-version=javascript-1.4.3&updatedAt=1675716069096" alt="logo" width="100"
-                                class="shadow-light rounded-circle">
+                            <img src="https://ik.imagekit.io/dxofqajmq/Tugas_Akhir/Group_355__1__P4PycX26V.png?ik-sdk-version=javascript-1.4.3&updatedAt=1675716069096"
+                                alt="logo" width="100" class="shadow-light rounded-circle">
                         </div>
 
                         <div class="card card-primary">
