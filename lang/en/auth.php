@@ -13,6 +13,7 @@ return [
     |
     */
 
+    'status' => 'Akun Anda di Non-Aktifkan oleh Admin!',
     'failed' => 'Silahkan Cek Kembali Username dan Password Anda!',
     'password' => 'Password Yang Anda Masukkan Tidak Sesuai!',
     'throttle' => 'Too many login attempts. Please try again in :seconds seconds.',
