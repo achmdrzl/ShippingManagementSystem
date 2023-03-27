@@ -32,6 +32,7 @@
                                             <th>Email</th>
                                             <th>Kota</th>
                                             <th>Level</th>
+                                            <th>Status</th>
                                             <th>Action</th>
                                         </tr>
                                     </thead>
@@ -55,9 +56,13 @@
                                                     @endif
                                                 </td>
                                                 <td>
-                                                    {{-- <button type="button" class="btn btn-primary btn-action mr-1"
-                                                        data-toggle="modal" title="Edit" value="{{ $item->id }}"><i
-                                                            class="fas fa-pencil-alt" id="btn-edit-post"></i></button> --}}
+                                                    @if ($item->status == 'active')
+                                                        <div class="badge badge-success">{{ ucfirst($item->status) }}</div>
+                                                    @else
+                                                        <div class="badge badge-danger">{{ ucfirst($item->status) }}</div>
+                                                    @endif
+                                                </td>
+                                                <td>
                                                     <button type="button" class="btn btn-primary editEmployeeBtn"
                                                         data-toggle="modal" data-target="#editEmployee"
                                                         data-id="{{ $item->id }}" value="{{ $item->id }}"
@@ -65,11 +70,20 @@
                                                         <i class="fas fa-pencil-alt" id="btn-edit-post"></i>
                                                     </button>
 
-                                                    <button type="button" class="btn btn-danger deleteEmployeeBtn"
-                                                        data-toggle="modal" data-target="#deleteEmployee" title="Archive"
-                                                        value="{{ $item->id }}">
-                                                        <i class="fas fa-trash"></i>
-                                                    </button>
+                                                    @if ($item->status == 'active')
+                                                        <button type="button" class="btn btn-danger deleteEmployeeBtn"
+                                                            data-toggle="modal" data-target="#deleteEmployee"
+                                                            title="Archive" value="{{ $item->id }}">
+                                                            <i class="fas fa-trash"></i>
+                                                        </button>
+                                                    @else
+                                                        <button type="button" class="btn btn-success deleteEmployeeBtn1"
+                                                            data-toggle="modal" data-target="#deleteEmployee1"
+                                                            title="Showing" value="{{ $item->id }}">
+                                                            <i class="fas fa-eye"></i>
+                                                        </button>
+                                                    @endif
+
 
                                                     @include('backend.dataKaryawan.edit')
                                                     @include('backend.dataKaryawan.delete')

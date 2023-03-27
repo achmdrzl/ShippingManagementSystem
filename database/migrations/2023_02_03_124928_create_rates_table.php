@@ -19,6 +19,7 @@ return new class extends Migration
             $table->integer('berat')->nullable();
             $table->integer('harga')->nullable();
             $table->string('status', 20)->default('active');
+            $table->foreignId('province_id');
             $table->timestamps();
         });
     }

@@ -41,7 +41,7 @@
                                                 <input type="hidden" class="delete_id" value="{{ $item->id }}">
 
                                                 <td>{{ $loop->iteration }}</td>
-                                                <td>{{ $item->kota }}</td>
+                                                <td>{{ $item->province->name }}</td>   
                                                 <td>{{ $item->berat / 1000 }} kg</td>
                                                 <td>{{ $item->harga }}</td>
                                                 <td>

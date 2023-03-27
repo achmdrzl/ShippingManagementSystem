@@ -3,9 +3,11 @@
 namespace App\Http\Controllers\Internal;
 
 use App\Http\Controllers\Controller;
+use App\Models\Province;
 use App\Models\Rates;
 use Brian2694\Toastr\Facades\Toastr;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 
 class DataTarifController extends Controller
 {
@@ -16,12 +18,17 @@ class DataTarifController extends Controller
      */
     public function index()
     {
-        $rates = Rates::all();
-        return view('backend.dataTarif.index', 
-        [
-            'name' => 'Data Tarif Pengiriman | Page',
-            'rates' => $rates
-        ]);
+        $rates = Rates::with(['province'])->get();
+        $provinces = Province::all();
+
+        return view(
+            'backend.dataTarif.index',
+            [
+                'name' => 'Data Tarif Pengiriman | Page',
+                'rates' => $rates,
+                'province' => $provinces
+            ]
+        );
     }
 
     /**
@@ -43,7 +50,7 @@ class DataTarifController extends Controller
     public function store(Request $request)
     {
         $this->validate($request, [
-            'kota' => 'required',
+            'province_id' => 'required',
             'berat' => 'required',
             'harga' => 'required',
         ]);
@@ -98,7 +105,7 @@ class DataTarifController extends Controller
     public function update(Request $request, $id)
     {
         $this->validate($request, [
-            'kota' => 'required',
+            'province_id' => 'required',
             'berat' => 'required',
             'harga' => 'required',
         ]);
@@ -136,6 +143,5 @@ class DataTarifController extends Controller
             ]);
             return response()->json(['status' => 'Data Tarif di Non-Aktifkan!']);
         }
-
     }
 }

@@ -22,7 +22,7 @@ class DataTransaksiController extends Controller
     public function index()
     {
         $customer = Customer::all();
-        $rates = Rates::all();
+        $rates = Rates::where('status', 'active')->get();
         $transaction = Transaction::with(['customer', 'kota'])->whereNot('status_del', 'arrived')->get();
 
         return view(

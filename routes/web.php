@@ -10,6 +10,7 @@ use App\Http\Controllers\Internal\DataTarifController;
 use App\Http\Controllers\Internal\DataTransaksiController;
 use App\Http\Controllers\Internal\ReportController;
 use App\Http\Controllers\ProfileController;
+use App\Models\Rates;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -28,7 +29,7 @@ Route::get('/login', function () {
 })->name('login');
 
 Route::resource('front', FrontController::class);
-Route::get('/', FrontController::class. '@index')->name('home.index');
+Route::get('/', FrontController::class . '@index')->name('home.index');
 
 
 Route::group(['middleware' => ['role:superadmin|admin', 'auth']], function () {
@@ -48,9 +49,9 @@ Route::group(['middleware' => ['role:superadmin|admin', 'auth']], function () {
     // Data Transaction
     Route::resource('transaction', DataTransaksiController::class);
 
-    Route::post('/transactionDelivery/{id}', DataTransaksiController::class. '@updateDelivery')->name('transaction.updateDel');
+    Route::post('/transactionDelivery/{id}', DataTransaksiController::class . '@updateDelivery')->name('transaction.updateDel');
 
-    Route::get('printBill/{id}', DataTransaksiController::class. '@printBill')->name('printBill');
+    Route::get('printBill/{id}', DataTransaksiController::class . '@printBill')->name('printBill');
 
     // Transaksi Admin
     Route::resource('admTsk', AdmTransaksiController::class);
@@ -61,7 +62,6 @@ Route::group(['middleware' => ['role:superadmin|admin', 'auth']], function () {
     // Data Report Shipping
     Route::resource('report', ReportController::class);
     Route::post('/setPeriod', ReportController::class . '@setPeriod')->name('set.time.period');
-
 });
 
 
@@ -69,6 +69,12 @@ Route::middleware('auth')->group(function () {
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
     Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
+});
+
+Route::get('/coba', function () {
+    $rates = Rates::with(['province'])->get();
+    return $rates;
+
 });
 
 require __DIR__ . '/auth.php';

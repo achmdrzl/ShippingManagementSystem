@@ -15,5 +15,9 @@ class Rates extends Model
     {
         return $this->hasMany(Transaction::class, 'kota_id');
     }
-    
+
+    public function province()
+    {
+        return $this->belongsTo(Province::class, 'province_id');
+    }
 }
