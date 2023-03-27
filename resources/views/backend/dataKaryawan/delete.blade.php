@@ -47,26 +47,27 @@
     });
 </script> --}}
 
-<!-- Modal -->
-<div class="modal fade" id="deleteEmployee" aria-labelledby="deleteEmployeeLabel" aria-hidden="true" data-backdrop="false">
+<!-- Modal Arsipkan-->
+<div class="modal fade" id="deleteEmployee{{ $item->status == 'active' ? '' : '1' }}" aria-labelledby="deleteEmployeeLabel" aria-hidden="true" data-backdrop="false">
     <div class="modal-dialog" role="document">
         <div class="modal-content">
             <div class="modal-header">
-                <h5 class="modal-title" id="deleteEmployeeLabel">Delete Data</h5>
+                <h5 class="modal-title" id="deleteEmployeeLabel">
+                    {{ $item->status == 'active' ? 'Arsipkan Data' : 'Aktifkan Data' }}</h5>
                 <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                     <span aria-hidden="true">&times;</span>
                 </button>
             </div>
             <div class="modal-body">
-                Are You Sure? This action can not be undone. Do you want to continue?
+                {{ $item->status == 'active' ? 'Apakah kamu yakin akan mengarsipkan data ini?' : 'Apakah kamu yakin akan menampilkan data ini?' }}
             </div>
             <form action="{{ route('employee.destroy', $item->id) }}" method="POST">
                 @csrf
                 @method('delete')
-                <input type="hidden" name="employee_id" id="employee_id">
+                <input type="hidden" name="employee_id" id="employee_id{{ $item->status == 'active' ? '' : '1' }}">
                 <div class="modal-footer">
                     <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancel</button>
-                    <button type="submit" class="btn btn-danger">Delete</button>
+                    <button type="submit" class="btn btn-{{ $item->status == 'active' ? 'danger' : 'success' }}">{{ $item->status == 'active' ? 'Arsipkan Data' : 'Aktifkan Data' }}</button>
                 </div>
             </form>
         </div>
@@ -80,6 +81,15 @@
 
             var employee_id = $(this).val();
             $('#employee_id').val(employee_id);
+        })
+    </script>
+
+    <script>
+        $('.deleteEmployeeBtn1').click(function(e) {
+            e.preventDefault();
+
+            var employee_id = $(this).val();
+            $('#employee_id1').val(employee_id);
         })
     </script>
 @endpush

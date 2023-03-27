@@ -43,7 +43,7 @@ class LoginRequest extends FormRequest
         $this->ensureIsNotRateLimited();
 
         if (Auth::attempt($this->only('email', 'password'), $this->boolean('remember'),)) {
-            if (Auth::user()->status != 'aktif') {
+            if (Auth::user()->status != 'active') {
                 Auth::logout();
                 throw ValidationException::withMessages([
                     'email' => __('Akun Anda di Non-Aktifkan oleh Admin!'),

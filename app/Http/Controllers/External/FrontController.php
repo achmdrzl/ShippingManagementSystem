@@ -45,6 +45,7 @@ class FrontController extends Controller
         $data = Transaction::where('kode_tracking', $input)->first();
 
         return view('frontend.index', compact('data'));
+        
         // return redirect()->route('.index')->with([
         //     'message' => 'Customer Created Successfully',
         //     'type' => 'success',

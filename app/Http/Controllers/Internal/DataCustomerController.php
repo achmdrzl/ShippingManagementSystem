@@ -80,9 +80,9 @@ class DataCustomerController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit($id)
+    public function edit(Customer $customer)
     {
-        $customer = Customer::find($id);
+        // $customer = Customer::find($id);
         //return response
         return response()->json([
             'success' => true,
@@ -138,8 +138,18 @@ class DataCustomerController extends Controller
      */
     public function destroy($id)
     {
-        Customer::find($id)->delete();
+        $customer = Customer::find($id);
 
-        return response()->json(['status' => 'Pelanggan Berhasil di Hapus!']);
+        if ($customer->status == 'unactive') {
+            $customer->update([
+                'status' => 'active'
+            ]);
+            return response()->json(['status' => 'Data Pelanggan di Aktifkan!']);
+        } else {
+            $customer->update([
+                'status' => 'unactive'
+            ]);
+            return response()->json(['status' => 'Data Pelanggan di Non-Aktifkan!']);
+        }
     }
 }

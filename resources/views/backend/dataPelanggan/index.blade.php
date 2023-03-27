@@ -32,6 +32,7 @@
                                             <th>Contact</th>
                                             <th>Address</th>
                                             <th>City</th>
+                                            <th>Status</th>
                                             <th>Registered</th>
                                             <th>Action</th>
                                         </tr>
@@ -45,6 +46,13 @@
                                                 <td>{{ $item->contact }}</td>
                                                 <td>{{ ucfirst($item->address) }}</td>
                                                 <td>{{ $item->city }}</td>
+                                                <td>
+                                                    @if ($item->status == 'active')
+                                                        <div class="badge badge-success">{{ ucfirst($item->status) }}</div>
+                                                    @else
+                                                        <div class="badge badge-danger">{{ ucfirst($item->status) }}</div>
+                                                    @endif
+                                                </td>
                                                 <td>{{ date('d F Y', strtotime($item->registered)) }}</td>
                                                 <td>
                                                     <button type="button" class="btn btn-primary editCustomerBtn"
@@ -53,15 +61,27 @@
                                                         title="Edit">
                                                         <i class="fas fa-pencil-alt" id="btn-edit-post"></i>
                                                     </button>
-                                                    <form action="{{ route('customer.destroy', $item->id) }}" method="POST"
-                                                        class="d-inline">
-                                                        @csrf
-                                                        @method('delete')
-                                                        <button type="submit" class="btn btn-danger btn-md btndelete"
-                                                            title="Archive">
-                                                            <i class="fas fa-trash"></i>
-                                                        </button>
-                                                    </form>
+                                                    @if ($item->status == 'active')
+                                                        <form action="{{ route('customer.destroy', $item->id) }}"
+                                                            method="POST" class="d-inline">
+                                                            @csrf
+                                                            @method('delete')
+                                                            <button type="submit" class="btn btn-danger btn-md btndelete"
+                                                                title="Archive">
+                                                                <i class="fas fa-trash"></i>
+                                                            </button>
+                                                        </form>
+                                                    @else
+                                                        <form action="{{ route('customer.destroy', $item->id) }}"
+                                                            method="POST" class="d-inline">
+                                                            @csrf
+                                                            @method('delete')
+                                                            <button type="submit" class="btn btn-success btn-md btndelete1"
+                                                                title="Showing">
+                                                                <i class="fas fa-eye"></i>
+                                                            </button>
+                                                        </form>
+                                                    @endif
                                                 </td>
                                                 @include('backend.dataPelanggan.edit')
                                             </tr>

@@ -22,19 +22,26 @@
         <div class="form-row">
             <div class="form-group col-md-6">
                 <label for="inputEmail4">Kota</label>
-                <input type="text" class="form-control" name="kota" id="inputCity" placeholder="Masukkan Kota" 
-                value="{{ old('kota') }}">
+                {{-- <input type="text" class="form-control" name="kota" id="inputCity" placeholder="Masukkan Kota"
+                    value="{{ old('kota') }}"> --}}
+                <label for="inputCity">Kota</label>
+                <select class="form-control" name="province_id" id="kota">
+                    <option value="">-- Select Provinsi --</option>
+                    @foreach ($province as $item)
+                        <option value="{{ $item->id }}">{{ ucfirst($item->name) }}</option>
+                    @endforeach
+                </select>
             </div>
             <div class="form-group col-md-6">
                 <label for="inputPassword4">Berat</label>
                 <input type="number" class="form-control" name="berat" id="inputBerat"
-                    placeholder="Masukkan Berat dalam Satuan gram" >
+                    placeholder="Masukkan Berat dalam Satuan gram">
             </div>
         </div>
         <div class="form-group">
             <label for="inputAddress">Harga</label>
             <input type="number" class="form-control" id="inputHarga" name="harga" placeholder="Masukkan Harga"
-            value="{{ old('harga') }}">
+                value="{{ old('harga') }}">
         </div>
     </div>
     <div class="card-footer text-right">

@@ -31,7 +31,7 @@
             </div>
             <div class="form-group col-md-12">
                 <label for="inputAddress4">Address</label>
-                <textarea class="form-control" name="address" id="address" cols="" rows="" placeholder="Input Address" value="{{ old('address') }}"></textarea>
+                <textarea class="form-control" name="address" id="address" cols="" rows="" placeholder="Input Address" value="{{ old('address') }}">{{ old('address') }}</textarea>
             </div>
             <div class="form-group col-md-6">
                 <label for="inputAddress4">City</label>

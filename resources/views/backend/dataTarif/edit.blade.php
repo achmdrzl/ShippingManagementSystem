@@ -33,11 +33,13 @@
                     </div>
                     <div class="card-body">
                         <div class="form-row">
-                            <div class="form-group col-md-6">
-                                <label for="inputName">Kota</label>
-                                <input type="text" name="kota" class="form-control" id="inputKota"
-                                    placeholder="Masukkan Nama Kota" value="{{ old('kota') }}">
-                            </div>
+                            <select class="form-control" name="province_id" id="kota">
+                                <option value="">-- Select Provinsi --</option>
+                                @foreach ($province as $item)
+                                    {{-- <option value="{{ $item->province->id }}" {{ $item->province->id == $item->province_id ? 'selected' : '' }}>{{ ucfirst($item->province->name) }}</option> --}}
+                                    <option value="{{ $item->id }}">{{ ucfirst($item->name) }}</option>
+                                @endforeach
+                            </select>
                             <div class="form-group col-md-6">
                                 <label for="inputEmail4">Berat</label>
                                 <input type="number" name="berat" class="form-control" id="inputBerat"
@@ -74,7 +76,8 @@
                 success: function(response) {
                     //fill data to form
                     $('#inputId').val(response.data.id);
-                    $('#inputKota').val(response.data.kota);
+                    // $('#kota').val(response.data.province.name);
+                    // $("#select_id").val().change();
                     $('#inputHarga').val(response.data.harga);
                     $('#inputBerat').val(response.data.berat);
                 }

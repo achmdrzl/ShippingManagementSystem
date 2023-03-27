@@ -52,15 +52,17 @@ class DataKaryawanController extends Controller
      */
     public function store(Request $request)
     {
-        $this->validate($request, [
-            'name' => 'required',
-            'email' => 'required|email|unique:users,email',
-            'password' => 'required|same:confirm-password|min:8',
-            'city' => 'required',
-            'role' => 'required',
-            'g-recaptcha-response' => 'recaptcha'
-        ]
-    );
+        $this->validate(
+            $request,
+            [
+                'name' => 'required',
+                'email' => 'required|email|unique:users,email',
+                'password' => 'required|same:confirm-password|min:8',
+                'city' => 'required',
+                'role' => 'required',
+                'g-recaptcha-response' => 'recaptcha'
+            ]
+        );
 
         $input = $request->all();
 
@@ -154,9 +156,23 @@ class DataKaryawanController extends Controller
      */
     public function destroy(Request $request)
     {
-        User::find($request->employee_id)->delete();
+        $user = User::find($request->employee_id);
+        // dd($request->employee_id);
+        if ($user->status == 'active') {
 
-        Toastr::error('Karyawan Berhasil di Hapus!', 'Success', ["progressBar" => true, "positionClass" => "toast-top-right",]);
+            $user->update([
+                'status' => 'unactive'
+            ]);
+
+            Toastr::error('Data Karyawan Berhasil di Non-Aktifkan!', 'Success', ["progressBar" => true, "positionClass" => "toast-top-right",]);
+
+        } else {
+
+            $user->update([
+                'status' => 'active'
+            ]);
+            Toastr::success('Data Karyawan Berhasil di Aktifkan!', 'Success', ["progressBar" => true, "positionClass" => "toast-top-right",]);
+        }
 
         return redirect()->route('employee.index')->with([
             'message' => 'User Created Successfully',
