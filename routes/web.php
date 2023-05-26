@@ -6,6 +6,7 @@ use App\Http\Controllers\Internal\DashboardController;
 use App\Http\Controllers\Internal\DataCustomerController;
 use App\Http\Controllers\Internal\DataHistoryController;
 use App\Http\Controllers\Internal\DataKaryawanController;
+use App\Http\Controllers\Internal\DataKuesioner;
 use App\Http\Controllers\Internal\DataTarifController;
 use App\Http\Controllers\Internal\DataTransaksiController;
 use App\Http\Controllers\Internal\ReportController;
@@ -29,7 +30,13 @@ Route::get('/login', function () {
 })->name('login');
 
 Route::resource('front', FrontController::class);
+
+Route::get('/kuesioners', function () {
+    return view('frontend.kuesioner');
+})->name('kuesioner.view');
+
 Route::get('/', FrontController::class . '@index')->name('home.index');
+Route::post('/storeKuesioner', FrontController::class . '@storeKuesioner')->name('store.kuesioner');
 
 
 Route::group(['middleware' => ['role:superadmin|admin', 'auth']], function () {
@@ -39,6 +46,9 @@ Route::group(['middleware' => ['role:superadmin|admin', 'auth']], function () {
 
     // Data Tarif
     Route::resource('rates', DataTarifController::class);
+
+    // Data Kuesioner
+    Route::resource('kuesioner', DataKuesioner::class);
 
     // Data Employee
     Route::resource('employee', DataKaryawanController::class);
@@ -74,7 +84,6 @@ Route::middleware('auth')->group(function () {
 Route::get('/coba', function () {
     $rates = Rates::with(['province'])->get();
     return $rates;
-
 });
 
 require __DIR__ . '/auth.php';

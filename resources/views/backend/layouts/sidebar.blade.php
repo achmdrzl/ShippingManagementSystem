@@ -46,6 +46,9 @@
                             <li class="{{ request()->segment(1) == 'report' ? 'active' : '' }}"><a class="nav-link"
                                     href="{{ route('report.index') }}"><i class="far fa-file-alt"></i>
                                     <span>Report</span></a></li>
+                            <li class="{{ request()->segment(1) == 'kuesioner' ? 'active' : '' }}"><a class="nav-link"
+                                    href="{{ route('kuesioner.index') }}"><i class="far fa-file-alt"></i>
+                                    <span>Quesioner</span></a></li>
                         @endif
                         <li class="{{ request()->segment(1) == 'history' ? 'active' : '' }}"><a class="nav-link"
                                 href="{{ route('history.index') }}"><i class="far fa-clock"></i>

@@ -4,6 +4,8 @@ namespace App\Http\Controllers\Internal;
 
 use App\Http\Controllers\Controller;
 use App\Models\Customer;
+use App\Models\Kuesioner;
+use App\Models\Province;
 use App\Models\Rates;
 use App\Models\Transaction;
 use Brian2694\Toastr\Facades\Toastr;
@@ -22,8 +24,10 @@ class DataTransaksiController extends Controller
     public function index()
     {
         $customer = Customer::all();
-        $rates = Rates::where('status', 'active')->get();
-        $transaction = Transaction::with(['customer', 'kota'])->whereNot('status_del', 'arrived')->get();
+        // $rates = Rates::where('status', 'active')->get();
+        $rates = Rates::with(['province'])->where('status', 'active')->get();
+        $province = Province::all();
+        $transaction = Transaction::with(['customer', 'kota.province'])->whereNot('status_del', 'arrived')->get();
 
         return view(
             'backend.dataTransaksi.index',
@@ -31,7 +35,7 @@ class DataTransaksiController extends Controller
                 'name' => 'Data Transaksi | Page',
                 'customer' => $customer,
                 'rates' => $rates,
-                'data' => $transaction
+                'data' => $transaction,
             ]
         );
     }
@@ -70,6 +74,10 @@ class DataTransaksiController extends Controller
         $codes = 'DENLOG';
         $input['kode_tracking'] = ($codes . strtoupper(Str::random(6)));
 
+        Kuesioner::create([
+            'kode_tracking' => $input['kode_tracking'],
+        ]);
+        
         // Kalkulasi Berat
         $input['total'] = ($request->berat / ($kota->berat / 1000)) * $kota->harga;
 

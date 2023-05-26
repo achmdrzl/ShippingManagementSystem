@@ -37,7 +37,7 @@
                     <option value="" disabled selected>-- Pilih Kota Tujuan --</option>
                     @foreach ($rates as $item)
                         <option value="{{ $item->id }}" @selected(old('kota_id') == $item->id)>
-                            {{ $item->kota }}
+                            {{ $item->province->name }}
                         </option>
                     @endforeach
                 </select>

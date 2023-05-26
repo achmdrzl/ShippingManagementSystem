@@ -22,7 +22,7 @@
                                     </tr>
                                     <tr>
                                         <th>Kota Tujuan</th>
-                                        <th colspan="6">{{ ucfirst($data->kota->kota) }}</th>
+                                        <th colspan="6">{{ ucfirst($data->kota->province->name) }}</th>
                                     </tr>
                                     <tr>
                                         <th>Berat Barang</th>
@@ -86,4 +86,3 @@
         </div>
     </div>
 @endsection
-

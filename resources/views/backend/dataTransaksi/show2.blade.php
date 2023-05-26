@@ -25,7 +25,7 @@
                                     </tr>
                                     <tr>
                                         <th>Kota Tujuan</th>
-                                        <th colspan="6">{{ ucfirst($data->kota->kota) }}</th>
+                                        <th colspan="6">{{ ucfirst($data->kota->province->name) }}</th>
                                     </tr>
                                     <tr>
                                         <th>Berat Barang</th>
@@ -101,8 +101,8 @@
                             title="Cetak Resi Pengiriman"><i class="fas fa-book"></i> Cetak Resi Pengiriman</a>
                     </div>
                     <div class="mt-2">
-                        <a class="btn btn-secondary btn-action mr-1" href="{{ route('dashboard') }}"
-                            data-toggle="tooltip" title="Back"><i class="fas fa-angle-left"></i> Back</a>
+                        <a class="btn btn-secondary btn-action mr-1" href="{{ route('dashboard') }}" data-toggle="tooltip"
+                            title="Back"><i class="fas fa-angle-left"></i> Back</a>
                     </div>
                 </div>
             </div>

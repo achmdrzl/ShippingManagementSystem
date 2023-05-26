@@ -39,4 +39,9 @@ class Province extends Model
     {
         return $this->hasMany(Rates::class);
     }
+
+    public function transaction()
+    {
+        return $this->hasMany(Transaction::class, 'kota_id');
+    }
 }

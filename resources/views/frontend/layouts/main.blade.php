@@ -9,7 +9,9 @@
     <meta content="Free HTML Templates" name="description">
 
     <!-- Favicon -->
-    <link href="https://ik.imagekit.io/dxofqajmq/Tugas_Akhir/Group_357_xY74eSQs2.png?ik-sdk-version=javascript-1.4.3&updatedAt=1675895666871" rel="icon" type="image/x-icon">
+    <link
+        href="https://ik.imagekit.io/dxofqajmq/Tugas_Akhir/Group_357_xY74eSQs2.png?ik-sdk-version=javascript-1.4.3&updatedAt=1675895666871"
+        rel="icon" type="image/x-icon">
 
     <!-- Google Web Fonts -->
     <link rel="preconnect" href="https://fonts.gstatic.com">
@@ -17,13 +19,14 @@
         rel="stylesheet">
 
     <!-- Font Awesome -->
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.10.0/css/all.min.css" rel="stylesheet">
-
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.14.0/css/all.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <!-- Libraries Stylesheet -->
     <link href="{{ asset('frontend/lib/owlcarousel/assets/owl.carousel.min.css') }}" rel="stylesheet">
 
     <!-- Customized Bootstrap Stylesheet -->
     <link href="{{ asset('frontend/css/style.css') }}" rel="stylesheet">
+    @stack('style-alt')
 </head>
 
 <body>
@@ -108,21 +111,18 @@
     <!-- Back to Top -->
     <a href="#" class="btn btn-lg btn-primary back-to-top"><i class="fa fa-angle-double-up"></i></a>
 
-
+    @stack('script-alt')
     <!-- JavaScript Libraries -->
     <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.bundle.min.js"></script>
-    <script src="{{ asset('frontendlib/easing/easing.min.js') }}"></script>
-    <script src="{{ asset('frontendlib/waypoints/waypoints.min.js') }}"></script>
-    <script src="{{ asset('frontendlib/counterup/counterup.min.js') }}"></script>
-    <script src="{{ asset('frontendlib/owlcarousel/owl.carousel.min.js') }}"></script>
-
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"></script>
     <!-- Contact Javascript File -->
     <script src="{{ asset('frontend/mail/jqBootstrapValidation.min.js') }}"></script>
     <script src="{{ asset('frontend/mail/contact.js') }}"></script>
 
     <!-- Template Javascript -->
-    <script src="{{ asset('js/main.js') }}"></script>
+    {{-- <script src="{{ asset('js/main.js') }}"></script> --}}
 </body>
 
 </html>
