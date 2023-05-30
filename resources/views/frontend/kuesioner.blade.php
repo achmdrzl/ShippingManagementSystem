@@ -461,6 +461,14 @@
                                        </select>
                                    </td>
                                </tr>
+                               <tr>
+                                   <td>Saran dan kritikan untuk perbaikan bagi kami.</td>
+                               </tr>
+                               <tr>
+                                   <td>
+                                       <textarea name="saran" id="saran" class="form-control"></textarea>
+                                   </td>
+                               </tr>
                            </table>
                            <button type="submit" class="btn btn-primary">Submit</button>
                        </form>

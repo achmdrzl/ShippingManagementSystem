@@ -19,11 +19,25 @@ class DataKuesioner extends Controller
 
         return view('backend.dataKuesioner.index',
             [
-                'name' => 'Data Tarif Pengiriman | Page',
+                'name' => 'Data Kuesioner | Page',
                 'kuesioner' => $kuesioner,
             ]
         );
     }
+
+    public function saran()
+    {
+        $kuesioner = Kuesioner::all();
+
+        return view('backend.dataSaran.index',
+            [
+                'name' => 'Data Saran | Page',
+                'kuesioner' => $kuesioner,
+            ]
+        );
+    }
+
+
 
     /**
      * Show the form for creating a new resource.

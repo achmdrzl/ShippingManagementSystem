@@ -33,6 +33,7 @@ return new class extends Migration
             $table->integer('p16');
             $table->string('kode_tracking');
             $table->string('ip');
+            $table->text('saran');
             $table->timestamps();
         });
     }

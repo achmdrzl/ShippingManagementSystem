@@ -72,6 +72,7 @@ class FrontController extends Controller
             'p14' => 'required',
             'p15' => 'required',
             'p16' => 'required',
+            'saran' => 'required',
         ], [
             'p1.required' => 'Pertanyaan Pertama Wajib di Isi!',
             'p2.required' => 'Pertanyaan Ke-dua Wajib di Isi!',
@@ -89,6 +90,7 @@ class FrontController extends Controller
             'p14.required' => 'Pertanyaan Ke-empatbelas Wajib di Isi!',
             'p15.required' => 'Pertanyaan Ke-limabelas Wajib di Isi!',
             'p16.required' => 'Pertanyaan Ke-enambelas Wajib di Isi!',
+            'saran.required' => 'Saran Wajib di Isi!',
         ]);
 
         $kode_tracking = request()->session()->get('kode_tracking');
@@ -110,6 +112,7 @@ class FrontController extends Controller
             'p14' => $request->p14,
             'p15' => $request->p15,
             'p16' => $request->p16,
+            'saran' => $request->saran,
             'ip' => $request->ip(),
         ]);
 

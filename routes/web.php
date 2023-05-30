@@ -50,6 +50,8 @@ Route::group(['middleware' => ['role:superadmin|admin', 'auth']], function () {
     // Data Kuesioner
     Route::resource('kuesioner', DataKuesioner::class);
 
+    Route::get('/saran', DataKuesioner::class. '@saran')->name('saran.index');
+
     // Data Employee
     Route::resource('employee', DataKaryawanController::class);
 
