@@ -50,6 +50,15 @@
                         <li class="{{ request()->segment(1) == 'history' ? 'active' : '' }}"><a class="nav-link"
                                 href="{{ route('history.index') }}"><i class="far fa-clock"></i>
                                 <span>Riwayat Transaksi</span></a></li>
+                        <li class="menu-header">Kuesioner dan Saran</li>
+                        @if (Auth::user()->HasRole('superadmin'))
+                            <li class="{{ request()->segment(1) == 'kuesioner' ? 'active' : '' }}"><a class="nav-link"
+                                    href="{{ route('kuesioner.index') }}"><i class="fa fa-user-secret"></i>
+                                    <span>Quesioner</span></a></li>
+                            <li class="{{ request()->segment(1) == 'saran' ? 'active' : '' }}"><a class="nav-link"
+                                    href="{{ route('saran.index') }}"><i class="far fa-window-restore"></i>
+                                    <span>Saran</span></a></li>
+                        @endif
                     </ul>
 
                     <div class="mt-4 mb-4 p-3 hide-sidebar-mini">

@@ -27,6 +27,7 @@ return new class extends Migration
             $table->integer('total')->nullable();
             $table->foreignId('customer_id');
             $table->foreignId('kota_id');
+            $table->foreignId('province_id');
             $table->timestamps();
         });
     }

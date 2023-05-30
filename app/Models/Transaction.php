@@ -21,4 +21,8 @@ class Transaction extends Model
         return $this->belongsTo(Rates::class);
     }
 
+    public function province()
+    {
+        return $this->belongsTo(Province::class);
+    }
 }
