@@ -135,7 +135,8 @@
                             <td>
                                 <strong>PENERIMA</strong><br>
                                 {{ ucfirst($data->namePenerima) }}<br>
-                                {{ $data->contactPenerima }}
+                                {{ $data->contactPenerima }}<br>
+                                {{ $data->alamatPenerima }}
                             </td>
 
                             <td>

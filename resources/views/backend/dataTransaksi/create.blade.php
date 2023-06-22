@@ -62,6 +62,10 @@
                 <input type="number" class="form-control" name="contactPenerima" id="inputCPenerima"
                     placeholder="Masukkan Contact Penerima" value="{{ old('contactPenerima') }}">
             </div>
+            <div class="form-group col-md-12">
+                <label for="inputCPenerima">Alamat Penerima</label>
+                <textarea name="alamatPenerima" id="alamatPenerima" class="form-control" value="{{ old('alamatPenerima') }}"></textarea>
+            </div>
         </div>
     </div>
     <div class="card-footer text-right">

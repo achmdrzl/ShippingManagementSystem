@@ -129,6 +129,50 @@
                border-collapse: separate;
                border-spacing: 0 8px;
            }
+
+           .rating {
+               transform: translate(-50%, -50%) rotateY(180deg);
+               display: flex;
+           }
+
+           .rating input {
+               display: none;
+           }
+
+           .rating label {
+               display: block;
+               cursor: pointer;
+               width: 50px;
+               /*background: #ccc;*/
+           }
+
+           .rating label:before {
+               content: '\f005';
+               font-family: fontAwesome;
+               position: relative;
+               display: block;
+               font-size: 50px;
+               color: #101010;
+           }
+
+           .rating label:after {
+               content: '\f005';
+               font-family: fontAwesome;
+               position: absolute;
+               display: block;
+               font-size: 50px;
+               color: #fffa00;
+               top: 0;
+               opacity: 0;
+               transition: .5s;
+               text-shadow: 0 2px 5px rgba(0, 0, 0, .5);
+           }
+
+           .rating label:hover:after,
+           .rating label:hover~label:after,
+           .rating input:checked~label:after {
+               opacity: 1;
+           }
        </style>
    @endpush
 
@@ -469,7 +513,19 @@
                                        <textarea name="saran" id="saran" class="form-control"></textarea>
                                    </td>
                                </tr>
+                               <tr>
+                                   <td>Rating Anda!.</td>
+                               </tr>
+                               <tr>
+                               </tr>
                            </table>
+                           <div class="rating mt-5">
+                               <input type="radio" name="star" value="star5" id="star1"><label for="star1"></label>
+                               <input type="radio" name="star" value="star4" id="star2"><label for="star2"></label>
+                               <input type="radio" name="star" value="star3" id="star3"><label for="star3"></label>
+                               <input type="radio" name="star" value="star2" id="star4"><label for="star4"></label>
+                               <input type="radio" name="star" value="star1" id="star5"><label for="star5"></label>
+                           </div>
                            <button type="submit" class="btn btn-primary">Submit</button>
                        </form>
                    </div>
