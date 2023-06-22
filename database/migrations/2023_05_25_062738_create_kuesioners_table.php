@@ -34,6 +34,7 @@ return new class extends Migration
             $table->string('kode_tracking');
             $table->string('ip');
             $table->text('saran');
+            $table->text('star');
             $table->timestamps();
         });
     }

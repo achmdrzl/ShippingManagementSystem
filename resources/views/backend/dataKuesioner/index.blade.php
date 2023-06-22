@@ -57,21 +57,24 @@
                                                 <td>{{ $item->p15 }}</td>
                                                 <td>{{ $item->p16 }}</td>
                                                 {{-- <td>{{ (($item->p1+$item->p2+$item->p3+$item->p4+$item->p5+$item->p6)/6)+(($item->p7+$item->p8+$item->p9+$item->p10+$item->p11+$item->p12)/6)+(($item->p13+$item->p14+$item->p15)/3)+(($item->p1+$item->p2+$item->p3+$item->p4+$item->p5+$item->p6+$item->p7+$item->p8+$item->p9+$item->p10+$item->p11+$item->p12+$item->p13+$item->p14+$item->p15+$item->p16)/16) }}</td> --}}
-                                                @php($hasil = (16 / ($item->p1 + $item->p2 + $item->p3 + $item->p4 + $item->p5 + $item->p6 + $item->p7 + $item->p8 + $item->p9 + $item->p10 + $item->p11 + $item->p12 + $item->p13 + $item->p14 + $item->p15 + $item->p16) / 7) * 100)
-                                                @if ($hasil > 7)
-                                                    <td>Sangat Memuaskan</td>
-                                                @elseif($hasil > 6)
-                                                    <td> Memuaskan</td>
-                                                @elseif($hasil > 5)
-                                                    <td> Sangat Setuju</td>
-                                                @elseif($hasil > 4)
-                                                    <td> Setuju</td>
-                                                @elseif($hasil > 3)
-                                                    <td> Cukup</td>
-                                                @elseif($hasil > 2)
-                                                    <td> Kurang</td>
-                                                @elseif($hasil > 1)
-                                                    <td> Sangat Kurang</td>
+                                                @if ($item->p1 == null)
+                                                @else
+                                                    @php($hasil = (16 / ($item->p1 + $item->p2 + $item->p3 + $item->p4 + $item->p5 + $item->p6 + $item->p7 + $item->p8 + $item->p9 + $item->p10 + $item->p11 + $item->p12 + $item->p13 + $item->p14 + $item->p15 + $item->p16) / 7) * 100)
+                                                    @if ($hasil > 7)
+                                                        <td>Sangat Memuaskan</td>
+                                                    @elseif($hasil > 6)
+                                                        <td> Memuaskan</td>
+                                                    @elseif($hasil > 5)
+                                                        <td> Sangat Setuju</td>
+                                                    @elseif($hasil > 4)
+                                                        <td> Setuju</td>
+                                                    @elseif($hasil > 3)
+                                                        <td> Cukup</td>
+                                                    @elseif($hasil > 2)
+                                                        <td> Kurang</td>
+                                                    @elseif($hasil > 1)
+                                                        <td> Sangat Kurang</td>
+                                                    @endif
                                                 @endif
                                             </tr>
                                         @endforeach

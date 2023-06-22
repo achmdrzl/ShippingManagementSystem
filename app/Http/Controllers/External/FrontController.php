@@ -73,6 +73,7 @@ class FrontController extends Controller
             'p15' => 'required',
             'p16' => 'required',
             'saran' => 'required',
+            'star' => 'required',
         ], [
             'p1.required' => 'Pertanyaan Pertama Wajib di Isi!',
             'p2.required' => 'Pertanyaan Ke-dua Wajib di Isi!',
@@ -113,6 +114,7 @@ class FrontController extends Controller
             'p15' => $request->p15,
             'p16' => $request->p16,
             'saran' => $request->saran,
+            'star' => $request->star,
             'ip' => $request->ip(),
         ]);
 

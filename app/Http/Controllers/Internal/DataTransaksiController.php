@@ -65,6 +65,7 @@ class DataTransaksiController extends Controller
             'tgl_transaksi' => 'required',
             'namePenerima' => 'required',
             'contactPenerima' => 'required',
+            'alamatPenerima' => 'required',
         ]);
 
         // Get Kota

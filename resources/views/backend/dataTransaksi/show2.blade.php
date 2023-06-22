@@ -40,6 +40,10 @@
                                         <td colspan="6">{{ $data->contactPenerima }}</th>
                                     </tr>
                                     <tr>
+                                        <th>Alamat Penerima</th>
+                                        <td colspan="6">{{ $data->alamatPenerima }}</th>
+                                    </tr>
+                                    <tr>
                                         <th>Tanggal Transaksi</th>
                                         <td colspan="6">{{ $data->tgl_transaksi }}</td>
                                     </tr>

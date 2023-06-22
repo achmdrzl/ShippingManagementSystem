@@ -17,6 +17,7 @@
                                             <th>No</th>
                                             <th>IP</th>
                                             <th>Saran</th>
+                                            <th>Rating</th>
                                         </tr>
                                     </thead>
                                     <tbody>
@@ -25,6 +26,17 @@
                                                 <td>{{ $loop->iteration }}</td>
                                                 <td>{{ $item->ip }}</td>
                                                 <td>{{ $item->saran }}</td>
+                                                @if ($item->star == 'star1')
+                                                    <td>Rating 1</td>
+                                                @elseif($item->star == 'star2')
+                                                    <td>Rating 2</td>
+                                                @elseif($item->star == 'star3')
+                                                    <td>Rating 3</td>
+                                                @elseif($item->star == 'star4')
+                                                    <td>Rating 4</td>
+                                                @else
+                                                    <td>Rating 5</td>
+                                                @endif
                                             </tr>
                                         @endforeach
                                     </tbody>

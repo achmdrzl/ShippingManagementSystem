@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Internal;
 use App\Http\Controllers\Controller;
 use App\Models\Kuesioner;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 
 class DataKuesioner extends Controller
 {
@@ -15,7 +16,7 @@ class DataKuesioner extends Controller
      */
     public function index()
     {
-        $kuesioner = Kuesioner::all();
+        $kuesioner = Kuesioner::whereNotNull('ip')->get();
 
         return view('backend.dataKuesioner.index',
             [

@@ -22,6 +22,7 @@ return new class extends Migration
             $table->integer('berat')->nullable();
             $table->string('namePenerima', 100);
             $table->string('contactPenerima', 100);
+            $table->text('alamatPenerima');
             $table->string('status_pay', 20)->default('unpaid');
             $table->string('status_del', 20)->default(('packaging'));
             $table->integer('total')->nullable();
